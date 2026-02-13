@@ -3,26 +3,7 @@
 <head>
 <title>Loan Payment Calculator</title>
 </head>
-
-<body>
-
-<h3>Loan Payment Calculator</h3>
-
-Loan Amount:
-<input id="pv"><br><br>
-
-Interest Rate (%):
-<input id="rate"><br><br>
-
-Years:
-<input id="years"><br><br>
-
-<button type="button" onclick="calculatePayment()">
-Calculate Monthly Payment
-</button>
-
-<p id="ans"></p>
-
+    
 <script>
 function calculatePayment() {
 
@@ -41,6 +22,28 @@ function calculatePayment() {
         P.toFixed(2);
 }
 </script>
+    
+<body>
+<h1>Loan Payment Calculator</h1>
+
+Present Value-- Amount You Wish to Borrow
+<input id="pv"><br><br>
+
+Years:
+<input id="years"><br><br>
+
+%-- Annual Interest Rate
+<input id="rate"><br><br>
+
+
+
+<button type="button" onclick="calculatePayment()">
+Calculate Monthly Payment
+</button>
+
+<p id="ans"></p>
+
+
 
 </body>
 </html>
