@@ -1,44 +1,41 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-<title>Project Loan Payment Calculator</title>
+<title>Loan Payment Calculator</title>
+</head>
+
+<body>
+<h3>Loan Payment Calculator</h3>
+Loan Amount:
+<input id="pv"><br><br>
+
+Interest Rate (%):
+<input id="rate"><br><br>
+
+Years:
+<input id="years"><br><br>
+
+<button type="button" onclick="calculatePayment()">
+Calculate Monthly Payment
+</button>
+
+<p id="ans"></p>
 
 <script>
 function calculatePayment() {
 
-    // Get values from the form (simpler version)
     let PV = Number(document.getElementById("pv").value);
     let r = Number(document.getElementById("rate").value);
     let n = Number(document.getElementById("years").value);
 
-    // Monthly payment formula
-    let P = ((r/100/12) * PV) / (1 - (1 + (r/100/12)) ** -(n*12));
+    let P = ((r/100/12) * PV) / 
+            (1 - (1 + (r/100/12)) ** -(n*12));
 
-    // Display result
     document.getElementById("ans").innerHTML =
-        "If you take a loan for $" + PV.toFixed(2) +
-        ", your monthly payment will be $" + P.toFixed(2);
+        "Monthly Payment: $" + P.toFixed(2);
 }
 </script>
-
-</head>
-
-<body>
-
-<h3>Loan Payment Calculator</h3>
-
-<label>Loan Amount (PV): </label>
-<input type="number" id="pv"><br><br>
-
-<label>Annual Interest Rate (r %): </label>
-<input type="number" id="rate" step="0.01"><br><br>
-
-<label>Number of Years (n): </label>
-<input type="number" id="years"><br><br>
-
-<button onclick="calculatePayment()">Calculate Payment</button>
-
-<p id="ans"></p>
 
 </body>
 </html>
