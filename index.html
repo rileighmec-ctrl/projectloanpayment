@@ -4,43 +4,43 @@
 <title>Loan Payment Calculator</title>
 </head>
 
-<script>
-function calculatePayment() {
-
-    let a = Number(document.getElementById("a").value);
-    let r = Number(document.getElementById("r").value);
-    let y = Number(document.getElementById("y").value);
-
-    let P = ((r/100/12) * a) / 
-            (1 - (1 + (r/100/12)) ** -(y*12));
-
-    document.getElementById("ans").innerHTML =
-        "If you take a $" + a +
-        " loan for " + y +
-        " years at " + r +
-        "% interest, your monthly payment will be: $" +
-        P.toFixed(2);
-}
-</script>
-
 <body>
 
 <h3>Loan Payment Calculator</h3>
 
 Loan Amount:
-<input id="a"><br><br>
+<input id="pv"><br><br>
 
 Interest Rate (%):
-<input id="r"><br><br>
+<input id="rate"><br><br>
 
 Years:
-<input id="y"><br><br>
+<input id="years"><br><br>
 
 <button type="button" onclick="calculatePayment()">
 Calculate Monthly Payment
 </button>
 
 <p id="ans"></p>
+
+<script>
+function calculatePayment() {
+
+    let PV = Number(document.getElementById("pv").value);
+    let r = Number(document.getElementById("rate").value);
+    let n = Number(document.getElementById("years").value);
+
+    let P = ((r/100/12) * PV) / 
+            (1 - (1 + (r/100/12)) ** -(n*12));
+
+    document.getElementById("ans").innerHTML =
+        "If you take a $" + PV +
+        " loan for " + n +
+        " years at " + r +
+        "% interest, your monthly payment will be: $" +
+        P.toFixed(2);
+}
+</script>
 
 </body>
 </html>
